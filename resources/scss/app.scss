@@ -1,0 +1,50 @@
+@import "bootstrap/scss/bootstrap";
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+.bg {
+    background-image: url(/public/images/carpinteria.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Aseguramos que el contenedor sea relativo 
+  (Bootstrap ya lo hace, pero es bueno saberlo)
+*/
+.form-floating {
+  position: relative;
+}
+
+/* Ajustamos el padding derecho del input para dejar
+  espacio al icono. 
+*/
+.form-floating .form-control {
+  padding-right: 3rem; /* Ajusta este valor según el tamaño de tu icono */
+}
+
+/* Posicionamos el icono 
+*/
+.form-floating .form-icon {
+  position: absolute;
+  top: 50%; /* Lo centra verticalmente */
+  right: 1rem; /* Lo pega a la derecha */
+  transform: translateY(-50%); /* Ajuste fino de centrado vertical */
+  color: #6c757d; /* Color gris de Bootstrap */
+  
+  /* Evita que el icono bloquee el click al input */
+  pointer-events: none; 
+}
+
+/* Si quieres que el icono del ojo SÍ sea clickeable 
+  (para mostrar/ocultar contraseña), usa una clase diferente 
+  y quita el pointer-events.
+*/
+.form-floating .form-icon-clickable {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  color: #6c757d;
+  cursor: pointer;
+  z-index: 100; /* Asegura que esté por encima */
+}
