@@ -8,6 +8,7 @@ Route::get('/', function () {
 });
 
 Route::view('/login', "login")->name('login');
+Route::view('/inicio', "inicio")->name('inicio');
 Route::view('/registro', "register")->name('registro');
 Route::view('/privada', "secret")->middleware('auth')->name('privada');
 
