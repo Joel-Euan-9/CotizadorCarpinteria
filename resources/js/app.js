@@ -1,5 +1,7 @@
 import './bootstrap';
 import 'bootstrap';
+import '../css/sidebar.css';
+import './sidebar.js';
 
 // Espera a que el contenido del HTML esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
