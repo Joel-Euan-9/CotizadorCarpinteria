@@ -1,16 +1,12 @@
-@extends('layouts.sidebar')
+let btnAgregarMadera= document.getElementById('btn-agregar-madera')
+let contForm= document.getElementById('form-cont')
 
-@vite(['resources/js/form-maderas.js'])
-@section('content')
-    <div class="container ">
-        <div class="d-flex justify-content-between m-2">
-            <h1>Maderas</h1>
-            <button id="btn-agregar-madera" class="btn bg-black text-white">Agregar madera</button>
-        </div>
-        <h4>Ingresa las medidas en metros</h4>
-        
-        <form id="form-cont" action="">
-            <div class="row">
+
+function agregar(){
+    let div = document.createElement('div')
+    div.classList.add('row')
+    let contenido = `
+    <div class="row">
                 <div class="col-12 mb-2">
                     
                     <select name="" id="" class="form-select w-25">
@@ -45,7 +41,10 @@
                     <button class="btn btn-outline-danger">Eliminar</button>
                 </div>
             </div>
-            
-        </form>
-    </div>
-@endsection
+    `
+    div.innerHTML = contenido
+    contForm.appendChild(div)
+    console.log("adaa")
+}
+
+btnAgregarMadera.addEventListener('click', agregar)
