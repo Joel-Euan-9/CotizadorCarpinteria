@@ -166,7 +166,7 @@
                 <div class="card-body">
                     <p class="card-text">Si encuentras algún error (bug), tienes alguna sugerencia para mejorar la aplicación o necesitas ayuda, no dudes en contactarme.</p>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><strong>Desarrollador:</strong> Julio César Olivera Baleón</li>
+                        <li class="list-group-item"><strong>Desarrollador:</strong> Lalito Heredia Cabras</li>
                         <li class="list-group-item"><strong>Email:</strong> soporte@carpenterstudio.com</li>
                         <li class="list-group-item"><strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM</li>
                     </ul>
