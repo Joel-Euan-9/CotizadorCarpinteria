@@ -48,3 +48,63 @@
   cursor: pointer;
   z-index: 100; /* Asegura que esté por encima */
 }
+
+/* --- Fix del acordeón comprimido y color azul --- */
+
+/* Asegura que el contenido principal del body sea bloque normal */
+main {
+  display: block !important;
+  width: 100% !important;
+  overflow: visible !important;
+}
+
+/* Si el contenedor de tu sidebar usa flex, evita centrar verticalmente el contenido */
+#body-pd {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start !important; /* Muy importante */
+}
+
+/* Acordeón limpio y sin aplastamiento */
+.accordion-item {
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+.accordion-button {
+  background-color: #fff;
+  color: #333;
+  padding: 1rem 1.25rem;
+  font-weight: 500;
+  box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #f8f9fa !important; /* gris claro */
+  color: #212529 !important;
+  box-shadow: none;
+}
+
+.accordion-body {
+  background-color: #fff;
+  padding: 1rem 1.25rem;
+  display: block;
+  width: 100%;
+  text-align: left;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+/* Transición normal */
+.accordion-collapse {
+  width: 100% !important;
+  transition: all 0.25s ease-in-out;
+}
+
+/* Elimina el borde azul del foco */
+.accordion-button:focus {
+  box-shadow: none !important;
+  border-color: rgba(0, 0, 0, 0.125);
+}
+

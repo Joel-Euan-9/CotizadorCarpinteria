@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title><link rel="icon" href="images/logoblanco.png">
 
-    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
+    @vite(['resources/scss/app.scss', 'resources/js/guest.js'])
     
 </head>
 <body class="d-flex vh-100 align-items-center justify-content-center bg-light">
@@ -18,7 +18,7 @@
                 <div class="text-center">
                     <img src="{{ asset('images/logo.png') }}" width="100" alt="Descripción del logo">
                 </div>
-                <h2 class="fw-bold text-center py-5">CarpenterStudio</h2>
+                <h2 class="fw-bold text-center py-5">Carpenter Studio</h2>
 
                     <form method="POST" action="{{ route('inicia-sesion') }}">
                         <div class="mb-4 form-floating">

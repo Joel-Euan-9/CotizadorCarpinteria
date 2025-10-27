@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <title>Carpenter Studio</title><link rel="icon" href="images/logoblanco.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 
+    @livewireStyles
 </head>
 
 <body id="body-pd">
@@ -18,10 +17,12 @@
 
     @include('layouts.partials.sidebar')
 
-    <main class="height-100 bg-light">
+    <main>
         @yield('content')
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+    @livewireScripts
 
     </body>
 </html>

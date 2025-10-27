@@ -5,8 +5,8 @@
 :root {
     --header-height: 3rem;
     --nav-width: 68px;
-    --first-color: #4723D9;
-    --first-color-light: #AFA5D9;
+    --first-color: #19183B;
+    --first-color-light: #E7F2EF;
     --white-color: #F7F6FB;
     --body-font: 'Nunito', sans-serif;
     --normal-font-size: 1rem;
@@ -137,12 +137,11 @@ a {
     padding-left: calc(var(--nav-width) + 1rem);
 }
 
-/* --- Estilo de Link Activo --- */
-.active {
+.nav_link.active {
     color: var(--white-color);
 }
 
-.active::before {
+.nav_link.active::before {
     content: '';
     position: absolute;
     left: 0;
