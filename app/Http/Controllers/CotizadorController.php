@@ -25,4 +25,9 @@ class CotizadorController extends Controller
         // en 'resources/views/cotizador/list.blade.php'
         return view('cotizador.list');
     }
+
+    public function users()
+    {
+        return view('cotizador.users');
+    }
 }

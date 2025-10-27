@@ -34,6 +34,10 @@ Route::get('/cotizador', [CotizadorController::class, 'show'])
 Route::get('/cotizaciones', [CotizadorController::class, 'list'])
      ->name('cotizaciones.list');
 
+// Ruta para el panel de usuarios
+Route::get('/usuarios', [CotizadorController::class, 'users'])
+     ->name('usuarios.users');
+
 
 // --- RUTAS DE LÓGICA DE AUTENTICACIÓN ---
 Route::post('/validar-registro',[LoginController::class, 'register'])->name('validar-registro');
