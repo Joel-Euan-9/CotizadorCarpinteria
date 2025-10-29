@@ -1,13 +1,13 @@
 let btnAgregarMadera= document.getElementById('btn-agregar-madera')
 let contForm= document.getElementById('form-cont')
-
+let btnEliminarMadera= document.getElementById('btn-eliminar-madera')
 
 function agregar(){
     let div = document.createElement('div')
     div.classList.add('row')
     let contenido = `
-    <div class="row">
-                <div class="col-12 mb-2">
+    <div class="row mb-2">
+                <div class="col-12">
                     
                     <select name="" id="" class="form-select w-25">
                         <option value="" disabled select>Selecciona el tipo de madera</option>
@@ -45,6 +45,10 @@ function agregar(){
     div.innerHTML = contenido
     contForm.appendChild(div)
     console.log("adaa")
+}
+
+function eliminar(){
+
 }
 
 btnAgregarMadera.addEventListener('click', agregar)

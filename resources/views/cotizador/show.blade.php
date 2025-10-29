@@ -10,11 +10,11 @@
         <h4>Ingresa las medidas en metros</h4>
         
         <form id="form-cont" action="">
-            <div class="row">
-                <div class="col-12 mb-2">
+            <div class="row mb-2">
+                <div class="col-12">
                     
                     <select name="" id="" class="form-select w-25">
-                        <option value="" disabled select>Selecciona el tipo de madera</option>
+                        <option value="" disabled selected>Selecciona el tipo de madera</option>
                         <option value="" >Pino</option>
                         <option value="" >Encino</option>
                         <option value="" >Cedro</option>
@@ -42,7 +42,7 @@
                     <input type="text" name="pieza" id="" class="form-control col-auto">
                 </div>
                 <div class="col-auto ms-auto">
-                    <button class="btn btn-outline-danger">Eliminar</button>
+                    <button id="btn-eliminar-madera" class="btn btn-outline-danger">Eliminar</button>
                 </div>
             </div>
             
