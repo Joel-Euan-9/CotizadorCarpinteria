@@ -22,8 +22,11 @@
                     <i class='bx bx-user nav_icon'></i> 
                     <span class="nav_name">Users</span> 
                 </a>
+                <a href="{{ route('inventario.invents') }}" class="nav_link {{ request()->routeIs('inventario.invents') ? 'active' : '' }}" wire:navigate> 
+                    <i class='bx bx-store-alt nav_icon'></i>  
+                    <span class="nav_name">Inventario</span> 
+                </a>
                 <a href="#" class="nav_link" wire:navigate> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Messages</span> </a>
-                <a href="#" class="nav_link" wire:navigate> <i class='bx bx-store-alt nav_icon'></i>  <span class="nav_name">Inventario</span> </a>
                 <a href="#" class="nav_link" wire:navigate> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Files</span> </a>
                 <a href="#" class="nav_link" wire:navigate> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Stats</span> </a>
             </div>

@@ -30,4 +30,9 @@ class CotizadorController extends Controller
     {
         return view('cotizador.users');
     }
+
+    public function invents()
+    {
+        return view('cotizador.inventario');
+    }
 }

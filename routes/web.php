@@ -38,6 +38,10 @@ Route::get('/cotizaciones', [CotizadorController::class, 'list'])
 Route::get('/usuarios', [CotizadorController::class, 'users'])
      ->name('usuarios.users');
 
+// Ruta para el panel de inventario
+Route::get('/inventario', [CotizadorController::class, 'invents'])
+     ->name('inventario.invents');
+
 
 // --- RUTAS DE LÓGICA DE AUTENTICACIÓN ---
 Route::post('/validar-registro',[LoginController::class, 'register'])->name('validar-registro');
