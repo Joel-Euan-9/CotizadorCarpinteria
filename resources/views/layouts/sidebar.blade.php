@@ -18,7 +18,11 @@
     @include('layouts.partials.sidebar')
 
     <main>
-        @yield('content')
+        @if (isset($slot))
+            {{ $slot }}
+        @else
+            @yield('content')
+        @endif
     </main>
 
     

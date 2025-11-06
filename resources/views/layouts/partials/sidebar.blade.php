@@ -13,7 +13,7 @@
                     <span class="nav_name">Cotizador</span> 
                 </a>
 
-                <a href="{{ route('cotizaciones.list') }}" class="nav_link {{ request()->routeIs('cotizaciones.list') ? 'active' : '' }}" wire:navigate>
+                <a href="{{route('quotations.list') }}" class="nav_link {{ request()->routeIs('quotations.list') ? 'active' : '' }}" wire:navigate>
                     <i class='bx bx-list-ul nav_icon'></i> 
                     <span class="nav_name">Cotizaciones</span> 
                 </a>

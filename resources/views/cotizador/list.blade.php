@@ -7,15 +7,21 @@
     <table class="table">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>Folio</th>
+                <th>Producto</th>
                 <th>Cliente</th>
+                <th>Fecha de creación</th>
+                <th>Fecha de vencimiento</th>
                 <th>Total</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>1</td>
-                <td>Cliente de Ejemplo</td>
+                <td>Ropero grande</td>
+                <td>Lalito Heredia</td>
+                <td>11/01/2025</td>
+                <td>14/01/2025</td>
                 <td>$100.00</td>
             </tr>
         </tbody>

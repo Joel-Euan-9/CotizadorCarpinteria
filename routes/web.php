@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-// ¡AQUÍ! Importa el nuevo controlador
 use App\Http\Controllers\CotizadorController;
+use App\Livewire\QuotationList;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,8 +31,8 @@ Route::get('/cotizador', [CotizadorController::class, 'show'])
      ->name('cotizador.show');
 
 // Ruta para la lista de cotizaciones
-Route::get('/cotizaciones', [CotizadorController::class, 'list'])
-     ->name('cotizaciones.list');
+//Route::get('/cotizaciones', [CotizadorController::class, 'list'])
+     //->name('cotizaciones.list');
 
 // Ruta para el panel de usuarios
 Route::get('/usuarios', [CotizadorController::class, 'users'])
@@ -41,6 +41,9 @@ Route::get('/usuarios', [CotizadorController::class, 'users'])
 // Ruta para el panel de inventario
 Route::get('/inventario', [CotizadorController::class, 'invents'])
      ->name('inventario.invents');
+
+// Nueva ruta para el panel de lista de cotizaciones
+Route::get('/quotations', QuotationList::class)->name('quotations.list');
 
 
 // --- RUTAS DE LÓGICA DE AUTENTICACIÓN ---
