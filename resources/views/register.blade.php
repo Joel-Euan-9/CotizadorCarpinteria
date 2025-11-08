@@ -19,7 +19,20 @@
         
         <h2 class="fw-bold text-center py-3">Crear Cuenta</h2>
 
-        <form method="POST" action="#"> <!-- Ruta de ejemplo -->
+        @error('password')
+            <div class="alert alert-danger py-2" role="alert">
+                {{ $message }}
+
+            </div>
+        @enderror
+
+        @error('password_confirmation')
+            <div class="alert alert-danger py-2" role="alert">
+                {{ $message }}
+            </div>
+        @enderror
+
+        <form method="POST" action="{{ route('validar-registro') }}"> <!-- Ruta de ejemplo -->
             @csrf
 
             <!-- Campo: Nombre -->

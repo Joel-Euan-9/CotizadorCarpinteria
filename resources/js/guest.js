@@ -1,30 +1,33 @@
 import './bootstrap';
 import 'bootstrap';
 
-// Espera a que el contenido del HTML esté completamente cargado
-document.addEventListener('DOMContentLoaded', function() {
+/**
+ * Configura un botón para mostrar/ocultar una contraseña.
+ *
+ * @param {string} toggleId - El ID del elemento (span/botón) que tiene el icono.
+ * @param {string} passwordId - El ID del campo <input> de la contraseña.
+ */
+function setupPasswordToggle(toggleId, passwordId) {
+    
+    // 1. Seleccionamos los elementos basados en los IDs recibidos
+    const toggleElement = document.querySelector(`#${toggleId}`);
+    const passwordElement = document.querySelector(`#${passwordId}`);
 
-    // 1. Seleccionamos el icono y el campo de contraseña
-    const togglePassword = document.querySelector('#togglePassword');
-    const password = document.querySelector('#password');
-
-    // IMPORTANTE:
-    // Si no encuentras el botón, sal del script para evitar errores.
-    // Esto es útil si cargas este JS en páginas que no tienen el formulario.
-    if (!togglePassword || !password) {
+    // 2. Si no se encuentran, salimos para evitar errores
+    if (!toggleElement || !passwordElement) {
         return; 
     }
 
-    const icon = togglePassword.querySelector('i');
+    const icon = toggleElement.querySelector('i');
 
-    // 2. Añadimos un "escuchador" de clics al icono
-    togglePassword.addEventListener('click', function (e) {
+    // 3. Añadimos el "escuchador" de clics
+    toggleElement.addEventListener('click', function (e) {
         
-        // 3. Cambiamos el tipo de input
-        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-        password.setAttribute('type', type);
+        // 4. Cambiamos el tipo de input
+        const type = passwordElement.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordElement.setAttribute('type', type);
         
-        // 4. Cambiamos el icono
+        // 5. Cambiamos el icono
         if (type === 'password') {
             icon.classList.remove('fa-eye');
             icon.classList.add('fa-eye-slash');
@@ -33,5 +36,16 @@ document.addEventListener('DOMContentLoaded', function() {
             icon.classList.add('fa-eye');
         }
     });
+}
+
+
+// Espera a que el contenido del HTML esté completamente cargado
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Configurar el primer campo de contraseña
+    setupPasswordToggle('togglePassword', 'password');
+
+    // Configurar el segundo campo (confirmación)
+    setupPasswordToggle('togglePasswordConfirm', 'password_confirmation');
 
 });

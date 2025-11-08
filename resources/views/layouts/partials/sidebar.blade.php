@@ -20,7 +20,7 @@
                 
                 <a href="{{ route('usuarios.users') }}" class="nav_link {{ request()->routeIs('usuarios.users') ? 'active' : '' }}" wire:navigate> 
                     <i class='bx bx-user nav_icon'></i> 
-                    <span class="nav_name">Users</span> 
+                    <span class="nav_name">Mi Cuenta</span> 
                 </a>
                 <a href="{{ route('inventario.invents') }}" class="nav_link {{ request()->routeIs('inventario.invents') ? 'active' : '' }}" wire:navigate> 
                     <i class='bx bx-store-alt nav_icon'></i>  
@@ -39,7 +39,7 @@
         </a>
 
         <form id="logout-form" action="{{ route('logout') }}" method="GET" style="display: none;">
-            @csrf
+            
         </form>
     </nav>
 </div>
