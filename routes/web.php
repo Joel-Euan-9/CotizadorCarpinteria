@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\UserAccount;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CotizadorController;
@@ -38,8 +39,8 @@ Route::middleware('auth')->group(function(){
          ->name('cotizador.show');
 
      // Ruta para el panel de usuarios
-     Route::get('/usuarios', [CotizadorController::class, 'users'])
-         ->name('usuarios.users');
+     //Route::get('/usuarios', [CotizadorController::class, 'users'])
+         //->name('usuarios.users');
 
      // Ruta para el panel de inventario
      Route::get('/inventario', [CotizadorController::class, 'invents'])
@@ -47,6 +48,9 @@ Route::middleware('auth')->group(function(){
 
      // Nueva ruta para el panel de lista de cotizaciones
      Route::get('/quotations', QuotationList::class)->name('quotations.list');
+
+     // Ruta para el panel de usuarios(Mi Cuenta)
+     Route::get('/Mi-Cuenta', UserAccount::class)->name('Mi-Cuenta');
 
 
 });
