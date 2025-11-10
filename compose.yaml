@@ -1,11 +1,11 @@
 services:
     laravel.test:
         build:
-            context: './vendor/laravel/sail/runtimes/8.4'
+            context: ./vendor/laravel/sail/runtimes/8.4
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
-        image: 'sail-8.4/app'
+        image: sail-8.4/app
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
@@ -28,7 +28,7 @@ services:
             - mailpit
             - selenium
     phpmyadmin:
-        image: 'phpmyadmin/phpmyadmin'
+        image: phpmyadmin/phpmyadmin
         ports:
             - '${FORWARD_PHPMYADMIN_PORT:-8080}:80'
         environment:
