@@ -8,7 +8,7 @@
 
             <div class="nav_list"> 
                 
-                <a href="{{ route('cotizador.show') }}" class="nav_link {{ request()->routeIs('cotizador.show') ? 'active' : '' }}" wire:navigate>
+                <a href="{{ route('cotizador') }}" class="nav_link {{ request()->routeIs('cotizador') ? 'active' : '' }}" wire:navigate>
                     <i class='bx bx-calculator nav_icon'></i> 
                     <span class="nav_name">Cotizador</span> 
                 </a>

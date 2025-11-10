@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CotizadorController;
 use App\Livewire\QuotationList;
+use App\Livewire\Cotizador;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +28,7 @@ Route::view('/privada', "secret")->middleware('auth')->name('privada');
 Route::view('/inicio', "inicio")->name('inicio');
 
 // Ruta para el formulario del cotizador
-Route::get('/cotizador', [CotizadorController::class, 'show'])
-     ->name('cotizador.show');
+Route::get('/cotizador', Cotizador::class)->name('cotizador');
 
 // Ruta para la lista de cotizaciones
 //Route::get('/cotizaciones', [CotizadorController::class, 'list'])
