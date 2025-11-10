@@ -2,7 +2,7 @@
     <div class="container-md my-5">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <div class="card shadow-lg rouded-3">
+                <div class="card shadow-lg rounded-3">
                     <div class="card-body p-4 p-md-5">
 
                     <h2 class="card-title h3 mb-2">Mi Cuenta</h2>
@@ -22,7 +22,7 @@
                             <label for="name" class="form-label">Nombre</label>
                             <input wire:model.defer="name" id="name" name="name" autocomplete="name" required class="form-control" type="text">
                             {{-- Mensaje de error (para el backend) --}}
-                            {{-- @error('name') <div class="invalid-feedback d-block">{{ $message }}</div> @enderror --}}
+                            @error('name') <div class="invalid-feedback d-block">{{ $message }}</div> @enderror
                         </div>
 
                         <div class="mb-3">
@@ -37,46 +37,56 @@
                         <h3 class="h5 mb-3">Cambiar Contraseña</h3>
                         <p class="text-muted small mb-3">Deja los campos en blanco si no deseeas cambiar tu contraseña</p>
 
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Nueva Contraseña</label>
+                        <div class="mb-3 form-floating">
+                            
                             <input wire:model.defer="password" id="password" name="password" type="password" autocomplete="new-password"
                             class="form-control">
+                            <label for="password" class="form-label">Nueva Contraseña</label>
+                            <span class="form-icon-clickable" id="togglePassword">
+                                <i class="fa-solid fa-eye-slash"></i>
+                            </span>
                             {{-- Mensaje de error (para el backend) --}}
-                            {{-- @error('password') <div class="invalid-feedback d-block">{{ $message }}</div> @enderror --}}
+                            @error('password') <div class="invalid-feedback d-block">{{ $message }}</div> @enderror
                         </div>
 
-                        <div class="mb-3">
-                            <label for="password-confirmation" class="form-label">Confirmar Nueva Contraseña</label>
+                        <div class="mb-3 form-floating">
+                            
                             <input wire:model.defer="password_confirmation" id="password_confirmation" name="password_confirmation" type="password" autocomplete="new-password"
                             class="form-control">
+                            <label for="password-confirmation" class="form-label">Confirmar Nueva Contraseña</label>
+                            <span class="form-icon-clickable" id="togglePasswordConfirm">
+                                <i class="fa-solid fa-eye-slash"></i>
+                            </span>
                         </div>
                     </form>
                     </div>
 
                     <div class="card-footer bg-light p-4 d-flex justify-content-between align-items-center">
-                        <div class="min-height: 1.5em;">
-                            @if(session()->has('message'))
-                                <span class_="text-success small">
-                                        x-data="{ show: true }"
-                                        x-show="show"
-                                        x-init="setTimeout(() => show = false, 3000)"
-                                        x-transition>
-                                    {{ session('message') }}
-                                </span>
-                            @endif
+                    
+                        {{-- Mensaje de éxito (AHORA MANEJADO 100% POR ALPINE) --}}
+                        <div style="min-height: 1.5em;"
+                            x-data="{ show: false, message: '' }"
+                            x-on:show-message.window="message = $event.detail.text; show = true; setTimeout(() => show = false, 3000)">
+                            
+                            <span x-show="show" 
+                                x-transition.opacity.out.duration.1500ms 
+                                class="text-success small" 
+                                x-text="message">
+                            </span>
                         </div>
+
+                        {{-- Botón de guardar (sin cambios) --}}
                         <button type="submit" form="profile-form"
-                            class="btn text-light"
-                            style="background-color: #19183B;"
-                            wire:click="save"
-                            wire:loading.attr="disabled"
-                            wire:target="save">
-
-                        <span wire:loading wire:target="save" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-
-                        <span wire:loading.remove wire:target="save">Guardar Cambios</span>
-                        <span wire:loading wire:target="save">Guardando...</span>
-                    </button>
+                                class="btn btn-primary"
+                                wire:click="save"
+                                wire:loading.attr="disabled"
+                                wire:target="save">
+                            
+                            <span wire:loading wire:target="save" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            
+                            <span wire:loading.remove wire:target="save">Guardar Cambios</span>
+                            <span wire:loading wire:target="save">Guardando...</span>
+                        </button>
                     </div>
                 </div>
             </div>
