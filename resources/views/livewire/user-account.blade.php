@@ -37,25 +37,53 @@
                         <h3 class="h5 mb-3">Cambiar Contraseña</h3>
                         <p class="text-muted small mb-3">Deja los campos en blanco si no deseeas cambiar tu contraseña</p>
 
-                        <div class="mb-3 form-floating">
+                        {{-- 1. Añadimos x-data="{ show: false }" para este campo --}}
+                        <div class="mb-3 form-floating" x-data="{ show: false }">
                             
-                            <input wire:model.defer="password" id="password" name="password" type="password" autocomplete="new-password"
-                            class="form-control">
+                            {{-- 2. Vinculamos el 'type' a la variable 'show' de Alpine --}}
+                            <input wire:model.defer="password" 
+                                id="password" 
+                                name="password" 
+                                :type="show ? 'text' : 'password'"  {{-- <--- CAMBIO AQUÍ --}}
+                                autocomplete="new-password"
+                                class="form-control">
+                            
                             <label for="password" class="form-label">Nueva Contraseña</label>
-                            <span class="form-icon-clickable" id="togglePassword">
-                                <i class="fa-solid fa-eye-slash"></i>
+                            
+                            {{-- 3. Añadimos un @click que cambia la variable 'show' --}}
+                            <span class="form-icon-clickable" 
+                                id="togglePassword" 
+                                @click="show = !show" {{-- <--- CAMBIO AQUÍ --}}
+                                style="cursor: pointer;">
+                                
+                                {{-- 4. Vinculamos la clase del ícono a la variable 'show' --}}
+                                <i class="fa-solid" 
+                                :class="show ? 'fa-eye' : 'fa-eye-slash'"></i> {{-- <--- CAMBIO AQUÍ --}}
                             </span>
-                            {{-- Mensaje de error (para el backend) --}}
+                            
                             @error('password') <div class="invalid-feedback d-block">{{ $message }}</div> @enderror
                         </div>
 
-                        <div class="mb-3 form-floating">
+                        {{-- 5. Repetimos lo mismo para el campo de confirmación --}}
+                        <div class="mb-3 form-floating" x-data="{ show: false }">
                             
-                            <input wire:model.defer="password_confirmation" id="password_confirmation" name="password_confirmation" type="password" autocomplete="new-password"
-                            class="form-control">
-                            <label for="password-confirmation" class="form-label">Confirmar Nueva Contraseña</label>
-                            <span class="form-icon-clickable" id="togglePasswordConfirm">
-                                <i class="fa-solid fa-eye-slash"></i>
+                            <input wire:model.defer="password_confirmation" 
+                                id="password_confirmation" 
+                                name="password_confirmation" 
+                                :type="show ? 'text' : 'password'" {{-- <--- CAMBIO AQUÍ --}}
+                                autocomplete="new-password"
+                                class="form-control">
+                            
+                            {{-- Corregí el 'for' para que coincida con el 'id' --}}
+                            <label for="password_confirmation" class="form-label">Confirmar Nueva Contraseña</label> 
+                            
+                            <span class="form-icon-clickable" 
+                                id="togglePasswordConfirm" 
+                                @click="show = !show" {{-- <--- CAMBIO AQUÍ --}}
+                                style="cursor: pointer;">
+                                
+                                <i class="fa-solid" 
+                                :class="show ? 'fa-eye' : 'fa-eye-slash'"></i> {{-- <--- CAMBIO AQUÍ --}}
                             </span>
                         </div>
                     </form>
@@ -77,10 +105,11 @@
 
                         {{-- Botón de guardar (sin cambios) --}}
                         <button type="submit" form="profile-form"
-                                class="btn btn-primary"
+                                class="btn text-light"
                                 wire:click="save"
                                 wire:loading.attr="disabled"
-                                wire:target="save">
+                                wire:target="save"
+                                style="background-color: #19183B">
                             
                             <span wire:loading wire:target="save" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                             
