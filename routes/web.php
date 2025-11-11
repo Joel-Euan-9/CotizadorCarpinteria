@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CotizadorController;
 use App\Livewire\QuotationList;
 use App\Livewire\NotesManager;
+use App\Livewire\Cotizador;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +37,8 @@ Route::middleware('auth')->group(function(){
 
      //Ruta vista de formulario de cotizador
      
-     Route::get('/cotizador', [CotizadorController::class, 'show'])
-         ->name('cotizador.show');
+     // Ruta para el formulario del cotizador
+    Route::get('/cotizador', Cotizador::class)->name('cotizador');
 
      // Ruta para el panel de usuarios
      //Route::get('/usuarios', [CotizadorController::class, 'users'])
