@@ -1,10 +1,10 @@
 <div>
     {{-- div principal requerido por Livewire --}}
 
-    <h4>Lista de Cotizaciones</h4>
-    <p>Este es el contenido de la página de la lista de cotizaciones.</p>
+    <h3>Lista de Cotizaciones</h3>
+    
 
-    <div class="table-responsive">
+    <div class="table-responsive mt-3">
         <table class="table table-striped table-hover">
             <thead class="thead-dark">
                 <tr>

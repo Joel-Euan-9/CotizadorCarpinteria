@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CotizadorController;
 use App\Livewire\QuotationList;
+use App\Livewire\NotesManager;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,9 @@ Route::middleware('auth')->group(function(){
 
      // Ruta para el panel de usuarios(Mi Cuenta)
      Route::get('/Mi-Cuenta', UserAccount::class)->name('Mi-Cuenta');
+
+     // Ruta para el panel de Mis Notas
+     Route::get('/notes', NotesManager::class)->name('notes.index');
 
 
 });
