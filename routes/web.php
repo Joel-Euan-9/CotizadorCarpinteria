@@ -21,37 +21,6 @@ Route::get('/', function () {
 Route::view('/login', "login")->name('login');
 Route::view('/register', "register")->name('register');
 Route::view('/registro', "register")->name('registro');
-<<<<<<< Updated upstream
-=======
-Route::view('/privada', "secret")->middleware('auth')->name('privada');
-
-
-// --- RUTAS DE CONTENIDO PRINCIPAL ---
-
-Route::view('/inicio', "inicio")->name('inicio');
-
-// Ruta para el formulario del cotizador
-Route::get('/cotizador', [CotizadorController::class, 'show'])
-     ->name('cotizador.show');
-
-// Ruta para la lista de cotizaciones
-//Route::get('/cotizaciones', [CotizadorController::class, 'list'])
-     //->name('cotizaciones.list');
-
-// Ruta para el panel de usuarios
-Route::get('/usuarios', [CotizadorController::class, 'users'])
-     ->name('usuarios.users');
-
-
-// Nueva ruta para el panel de lista de cotizaciones
-Route::get('/quotations', QuotationList::class)->name('quotations.list');
-
-// Nueva ruta para el panel de inventarios
-
-Route::get('/inventario', Inventario::class)->name('inventario');
-
-
->>>>>>> Stashed changes
 
 // --- RUTAS DE LÓGICA DE AUTENTICACIÓN ---
 Route::post('/validar-registro',[LoginController::class, 'register'])->name('validar-registro');
@@ -75,8 +44,8 @@ Route::middleware('auth')->group(function(){
          //->name('usuarios.users');
 
      // Ruta para el panel de inventario
-     Route::get('/inventario', [CotizadorController::class, 'invents'])
-         ->name('inventario.invents');
+     Route::get('/inventario', Inventario::class)
+         ->name('inventario');
 
      // Nueva ruta para el panel de lista de cotizaciones
      Route::get('/quotations', QuotationList::class)->name('quotations.list');

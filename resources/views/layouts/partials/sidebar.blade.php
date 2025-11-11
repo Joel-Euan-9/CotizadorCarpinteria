@@ -17,16 +17,7 @@
                     <i class='bx bx-list-ul nav_icon'></i> 
                     <span class="nav_name">Cotizaciones</span> 
                 </a>
-<<<<<<< Updated upstream
-                <a href="{{ route('inventario.invents') }}" class="nav_link {{ request()->routeIs('inventario.invents') ? 'active' : '' }}" wire:navigate> 
-=======
-                
-                <a href="{{ route('usuarios.users') }}" class="nav_link {{ request()->routeIs('usuarios.users') ? 'active' : '' }}" wire:navigate> 
-                    <i class='bx bx-user nav_icon'></i> 
-                    <span class="nav_name">Users</span> 
-                </a>
                 <a href="{{ route('inventario') }}" class="nav_link {{ request()->routeIs('inventario') ? 'active' : '' }}" wire:navigate> 
->>>>>>> Stashed changes
                     <i class='bx bx-store-alt nav_icon'></i>  
                     <span class="nav_name">Inventario</span> 
                 </a>
