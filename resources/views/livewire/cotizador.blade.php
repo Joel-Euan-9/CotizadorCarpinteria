@@ -1,6 +1,6 @@
 <div>
     <form wire:submit.prevent="calcularCosto">
-        <h2>Cotizador de Maderas 🌲</h2>
+        <h2>Cotizador de Maderas</h2>
         <p>Agregue cada tipo de madera y sus respectivas piezas.</p>
 
         @foreach ($maderasData as $maderaIndex => $maderaData)
@@ -83,7 +83,7 @@
 
 
         <div class="mt-5 pt-3 border-top">
-            <h2>🔩 Herrajes</h2>
+            <h2> Herrajes</h2>
 
             @foreach ($herrajesData as $herrajeIndex => $herrajeData)
                 <div class="row g-2 mb-3">
@@ -102,6 +102,11 @@
                         <input type="number" class="form-control" min="1" 
                             wire:model.live="herrajesData.{{ $herrajeIndex }}.cantidad">
                     </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Precio</label>
+                        <input type="text" class="form-control" disabled 
+                            value="$ {{ $this->getPrecioTotalHerraje($herrajeIndex) }}">
+                    </div>
                     <div class="col-md-4 d-flex align-items-end">
                         <button type="button" class="btn btn-sm btn-outline-danger w-100" 
                                 wire:click="removerHerraje({{ $herrajeIndex }})">
@@ -119,7 +124,7 @@
 
 
         <div class="mt-5 pt-3 border-top">
-            <h2>🎨 Pinturas</h2>
+            <h2> Pinturas</h2>
 
             @foreach ($pinturasData as $pinturaIndex => $pinturaData)
                 <div class="row g-2 mb-3">
@@ -138,6 +143,13 @@
                         <input type="number" class="form-control" min="1" 
                             wire:model.live="pinturasData.{{ $pinturaIndex }}.cantidad">
                     </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label">Precio</label>
+                        <input type="text" class="form-control" disabled 
+                            value="$ {{ $this->getPrecioTotalPintura($pinturaIndex) }}">
+                    </div>
+
                     <div class="col-md-4 d-flex align-items-end">
                         <button type="button" class="btn btn-sm btn-outline-danger w-100" 
                                 wire:click="removerPintura({{ $pinturaIndex }})">
@@ -155,7 +167,7 @@
 
 
         <div class="mt-5 pt-3 border-top">
-            <h2>🧑‍🏭 Mano de Obra</h2>
+            <h2> Mano de Obra</h2>
             
             <div class="row g-2">
                 <div class="col-md-4">
@@ -181,11 +193,31 @@
                 </div>
             </div>
         </div>
-        
+
+        <div class="mt-5 mb-5 pt-3 border-top">
+            <h2>Margen de ganancia</h2>
+            <div class="col-md-4">
+                <label class="form-label">Indica el margen de ganancia %</label>
+                <input type="number" class="form-control" min="0" step="0.5" 
+                    wire:model.live="margenGanancia">
+            </div>
+        </div>
 
 
-        <button type="submit" class="btn btn-info btn-lg w-100">
-            Calcular Cotización
-        </button>
+        <button type="submit" class="btn btn-dark btn-lg w-100 mb-5 mt-5">
+                Calcular Cotización
+            </button>
     </form>
+
+    @if ($costoTotal > 0)
+    <div class="mt-4 p-4 bg-success-subtle text-success-emphasis border border-success rounded">
+        <h3>Costo Total Estimado:</h3>
+        <h1 class="display-4">$ {{ number_format($costoTotal, 2) }}</h1>
+    </div>
+@endif
+
+{{-- Opcional: Mensajes de Livewire --}}
+@if (session()->has('success'))
+    <div class="alert alert-success mt-3">{{ session('success') }}</div>
+@endif
 </div>
