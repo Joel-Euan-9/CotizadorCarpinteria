@@ -17,18 +17,17 @@
                     <i class='bx bx-list-ul nav_icon'></i> 
                     <span class="nav_name">Cotizaciones</span> 
                 </a>
-                
-                <a href="{{ route('usuarios.users') }}" class="nav_link {{ request()->routeIs('usuarios.users') ? 'active' : '' }}" wire:navigate> 
-                    <i class='bx bx-user nav_icon'></i> 
-                    <span class="nav_name">Users</span> 
-                </a>
                 <a href="{{ route('inventario.invents') }}" class="nav_link {{ request()->routeIs('inventario.invents') ? 'active' : '' }}" wire:navigate> 
                     <i class='bx bx-store-alt nav_icon'></i>  
                     <span class="nav_name">Inventario</span> 
                 </a>
-                <a href="#" class="nav_link" wire:navigate> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Messages</span> </a>
-                <a href="#" class="nav_link" wire:navigate> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Files</span> </a>
-                <a href="#" class="nav_link" wire:navigate> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Stats</span> </a>
+                <a href="#" class="nav_link" wire:navigate> <i class='bx bx-note nav_icon'></i> <span class="nav_name">Mis Notas</span> </a>
+                <a href="#" class="nav_link" wire:navigate> <i class='bx bx-message nav_icon'></i> <span class="nav_name">Chat</span> </a>
+                <a href="#" class="nav_link" wire:navigate> <i class='bx bx-layout nav_icon'></i> <span class="nav_name">Diseños</span> </a>
+                <a href="{{ route('Mi-Cuenta') }}" class="nav_link {{ request()->routeIs('Mi-Cuenta') ? 'active' : '' }}" wire:navigate> 
+                    <i class='bx bx-user nav_icon'></i> 
+                    <span class="nav_name">Mi Cuenta</span> 
+                </a>
             </div>
         </div> 
 
@@ -39,7 +38,7 @@
         </a>
 
         <form id="logout-form" action="{{ route('logout') }}" method="GET" style="display: none;">
-            @csrf
+            
         </form>
     </nav>
 </div>

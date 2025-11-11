@@ -19,8 +19,14 @@
                     <img src="{{ asset('images/logo.png') }}" width="100" alt="Descripción del logo">
                 </div>
                 <h2 class="fw-bold text-center py-5">Carpenter Studio</h2>
+                @error('email')
+                    <div class="alert  alert-danger" role="alert">
+                        {{ $message }}
+                    </div>
+                @enderror
 
                     <form method="POST" action="{{ route('inicia-sesion') }}">
+                        @csrf
                         <div class="mb-4 form-floating">
                             <input type="email" class="form-control" name="email" id="floatingInput" placeholder="ejemplo@tudominio.com" required autocmplete="disabled">
                             <label for="floatingInput">Correo electrónico</label>
@@ -46,9 +52,9 @@
                         <div class="my-3 text-center">
                             <span>¿No tienes cuenta? <a href="{{ route('registro') }}">Regístrate</a></span>
                         </div>
-                         <div class="my-3 text-center">
+                         <!--<div class="my-3 text-center">
                             <span><a href="#">Recuperar contraseña</a></span>
-                        </div>
+                        </div>-->
                     </form>
                     
             </div>

@@ -6,7 +6,7 @@
     <title>Carpenter Studio</title><link rel="icon" href="images/logoblanco.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
-    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
+    @vite(['resources/scss/app.scss', 'resources/js/app.js', 'resources/js/guest.js'])
 
     @livewireStyles
 </head>

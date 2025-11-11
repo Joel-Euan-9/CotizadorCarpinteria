@@ -70,16 +70,6 @@
                 <div class="col">
                     <div class="card h-100 text-center shadow-sm">
                         <div class="card-body">
-                            <i class='bx bx-user nav_icon bx-lg'></i>
-                            <h5 class="card-title mt-2">Usuarios</h5>
-                            <p class="card-text">Gestión de clientes y administradores. Registra, edita y consulta la información de contacto.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card h-100 text-center shadow-sm">
-                        <div class="card-body">
                             <i class='bx bx-calculator nav_icon bx-lg'></i>
                             <h5 class="card-title mt-2">Cotizador</h5>
                             <p class="card-text">El corazón del sistema. Crea cotizaciones detalladas seleccionando materiales y mano de obra.</p>
@@ -96,19 +86,64 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col">
                     <div class="card h-100 text-center shadow-sm">
                         <div class="card-body">
                             <i class='bx bx-store-alt bx-lg'></i> 
                             <h5 class="card-title mt-2">Inventario</h5>
-                            <p class="card-text">Controla tu stock de madera, herrajes y otros materiales. (Próximamente)</p>
+                            <p class="card-text">Controla tu stock de madera, herrajes y otros materiales.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 text-center shadow-sm">
+                        <div class="card-body">
+                            <i class='bx bx-note nav_icon bx-lg'></i>
+                            <h5 class="card-title mt-2">Mis Notas</h5>
+                            <p class="card-text">Guarda ideas, notas rápidas, tareas pendientes e información importante.</p>
                         </div>
                     </div>
                 </div>
 
             </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-2">
+
+                <div class="col">
+                    <div class="card h-100 text-center shadow-sm">
+                        <div class="card-body">
+                            <i class='bx bx-message nav_icon bx-lg'></i>
+                            <h5 class="card-title mt-2">Chat</h5>
+                            <p class="card-text">Un espacio para colaborar, resolver dudas y dar avisos generales a todo el equipo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 text-center shadow-sm">
+                        <div class="card-body">
+                            <i class='bx bx-layout nav_icon bx-lg'></i> 
+                            <h5 class="card-title mt-2">Diseños</h5>
+                            <p class="card-text">Inspírate con un catálogo de muestra. Revisa ejemplos de productos, sus medidas y materiales.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 text-center shadow-sm">
+                        <div class="card-body">
+                            <i class='bx bx-user nav_icon bx-lg'></i>
+                            <h5 class="card-title mt-2">Mi Cuenta</h5>
+                            <p class="card-text">Administra tu información personal y contraseña.</p>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+            </div>
         </div>
+        
     </div>
 
 
@@ -166,7 +201,7 @@
                 <div class="card-body">
                     <p class="card-text">Si encuentras algún error (bug), tienes alguna sugerencia para mejorar la aplicación o necesitas ayuda, no dudes en contactarme.</p>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><strong>Desarrollador:</strong> Lalito Heredia Cabras</li>
+                        <li class="list-group-item"><strong>Desarrollador:</strong> Joel Euan</li>
                         <li class="list-group-item"><strong>Email:</strong> soporte@carpenterstudio.com</li>
                         <li class="list-group-item"><strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM</li>
                     </ul>
