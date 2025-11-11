@@ -8,7 +8,7 @@
 
             <div class="nav_list"> 
                 
-                <a href="{{ route('cotizador.show') }}" class="nav_link {{ request()->routeIs('cotizador.show') ? 'active' : '' }}" wire:navigate>
+                <a href="{{ route('cotizador') }}" class="nav_link {{ request()->routeIs('cotizador') ? 'active' : '' }}" wire:navigate>
                     <i class='bx bx-calculator nav_icon'></i> 
                     <span class="nav_name">Cotizador</span> 
                 </a>
@@ -21,7 +21,7 @@
                     <i class='bx bx-store-alt nav_icon'></i>  
                     <span class="nav_name">Inventario</span> 
                 </a>
-                <a href="#" class="nav_link" wire:navigate> <i class='bx bx-note nav_icon'></i> <span class="nav_name">Mis Notas</span> </a>
+                <a href="{{ route('notes.index') }}" class="nav_link {{ request()->routeIs('notes.index') ? 'active' : '' }}" wire:navigate> <i class='bx bx-note nav_icon'></i> <span class="nav_name">Mis Notas</span> </a>
                 <a href="#" class="nav_link" wire:navigate> <i class='bx bx-message nav_icon'></i> <span class="nav_name">Chat</span> </a>
                 <a href="#" class="nav_link" wire:navigate> <i class='bx bx-layout nav_icon'></i> <span class="nav_name">Diseños</span> </a>
                 <a href="{{ route('Mi-Cuenta') }}" class="nav_link {{ request()->routeIs('Mi-Cuenta') ? 'active' : '' }}" wire:navigate> 

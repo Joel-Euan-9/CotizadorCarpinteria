@@ -109,7 +109,7 @@
                                 wire:click="save"
                                 wire:loading.attr="disabled"
                                 wire:target="save"
-                                style="background-color: #19183B">
+                                style="background-color: #2a296dff">
                             
                             <span wire:loading wire:target="save" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                             

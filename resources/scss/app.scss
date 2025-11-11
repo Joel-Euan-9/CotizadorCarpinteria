@@ -108,3 +108,19 @@ main {
   border-color: rgba(0, 0, 0, 0.125);
 }
 
+
+.modal-backdrop,
+.modal.fade.show.d-block {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: rgba(0,0,0,0.5) !important;
+    z-index: 1055 !important;
+}
+
+.modal-dialog {
+    margin: 0 auto;
+}
+
