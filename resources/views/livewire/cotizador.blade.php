@@ -1,7 +1,22 @@
 <div>
+    <div class="text-center p-5 bg-dark text-light mb-3">
+        <h1>Cotizador</h1>
+    </div>
     <form wire:submit.prevent="calcularCosto">
+        <div class="row mb-4">
+        <h2>Datos generales</h2>
+            <div class="col">
+                <label for="name" class="form-label fs-4">Nombre del cliente</label>
+                <input type="text" class="form-control" placeholder="Nombre completo">
+            </div>
+            <div class="col">
+                <label for="name" class="form-label fs-4">Producto</label>
+                <input type="text" class="form-control" placeholder="Nombre del producto">
+            </div>
+       
+        </div>
         <h2>Cotizador de Maderas</h2>
-        <p>Agregue cada tipo de madera y sus respectivas piezas.</p>
+        <h4>Agregue cada tipo de madera y sus respectivas piezas.</h6>
 
         @foreach ($maderasData as $maderaIndex => $maderaData)
             <div class="border p-4 mb-4 rounded shadow-sm bg-light">
@@ -30,20 +45,24 @@
 @foreach ($maderaData['piezas'] as $piezaIndex => $piezaData)
     <div class="row g-2 mb-2 align-items-end">
         <div class="col-md-3">
+            <label class="form-label">Pieza</label>
+            <input type="text" class="form-control" placeholder="">
+        </div>
+        <div class="col-md-3">
             <label class="form-label">Largo (m)</label>
-            <input type="number" class="form-control" placeholder="Largo" 
+            <input type="text" class="form-control" placeholder="Largo" 
                 wire:model.live="maderasData.{{ $maderaIndex }}.piezas.{{ $piezaIndex }}.largo" 
                 step="0.01" min="0">
         </div>
         <div class="col-md-3">
             <label class="form-label">Ancho (m)</label>
-            <input type="number" class="form-control" placeholder="Ancho" 
+            <input type="text" class="form-control" placeholder="Ancho" 
                 wire:model.live="maderasData.{{ $maderaIndex }}.piezas.{{ $piezaIndex }}.ancho"
                 step="0.01" min="0">
         </div>
         <div class="col-md-3">
             <label class="form-label">Cantidad</label>
-            <input type="number" class="form-control" 
+            <input type="text" class="form-control" 
                 wire:model.live="maderasData.{{ $maderaIndex }}.piezas.{{ $piezaIndex }}.cantidad"
                 min="1">
         </div>
@@ -52,11 +71,11 @@
             <input type="text" disabled class="form-control" 
                 value="$ {{ $this->getPrecioTotalMadera($maderaIndex, $piezaIndex) }}">
         </div>
-                        <div class="col-md-3 text-end">
+                        <div class="col-md-3">
                             @if (count($maderaData['piezas']) > 1)
-                                <button type="button" class="btn btn-sm btn-outline-danger w-100" 
+                                <button type="button" class="btn btn-sm btn-outline-danger fs-5" 
                                         wire:click="removerPieza({{ $maderaIndex }}, {{ $piezaIndex }})">
-                                    Quitar Pieza
+                                    Eliminar
                                 </button>
                             @endif
                         </div>
@@ -64,9 +83,9 @@
                 @endforeach
 
                 <div class="mt-3">
-                    <button type="button" class="btn btn-sm btn-primary" 
+                    <button type="button" class="btn btn-outline-dark rounded shadow-md fs-5" 
                             wire:click="agregarPieza({{ $maderaIndex }})">
-                        + Agregar otra Pieza de esta Madera
+                        + Agregar
                     </button>
                 </div>
             </div>
@@ -75,7 +94,7 @@
         <hr class="my-4">
 
         <div class="mb-4">
-            <button type="button" class="btn btn-success btn-lg" wire:click="agregarOtraMadera">
+            <button type="button" class="btn btn-outline-dark btn-lg" wire:click="agregarOtraMadera">
                 + Agregar Otro Tipo de Madera
             </button>
         </div>
@@ -86,8 +105,8 @@
             <h2> Herrajes</h2>
 
             @foreach ($herrajesData as $herrajeIndex => $herrajeData)
-                <div class="row g-2 mb-3">
-                    <div class="col-md-5">
+                <div class="row g-2 mb-3 align-items-end">
+                    <div class="col-md-4">
                         <label class="form-label">Tipo de Herraje</label>
                         <select class="form-select" 
                                 wire:model.live="herrajesData.{{ $herrajeIndex }}.material_id">
@@ -107,10 +126,10 @@
                         <input type="text" class="form-control" disabled 
                             value="$ {{ $this->getPrecioTotalHerraje($herrajeIndex) }}">
                     </div>
-                    <div class="col-md-4 d-flex align-items-end">
-                        <button type="button" class="btn btn-sm btn-outline-danger w-100" 
+                    <div class="col-md-2 aling-items-end">
+                        <button type="button" class="btn btn-outline-danger " 
                                 wire:click="removerHerraje({{ $herrajeIndex }})">
-                            Quitar Herraje
+                            Eliminar
                         </button>
                     </div>
                 </div>
@@ -127,8 +146,8 @@
             <h2> Pinturas</h2>
 
             @foreach ($pinturasData as $pinturaIndex => $pinturaData)
-                <div class="row g-2 mb-3">
-                    <div class="col-md-5">
+                <div class="row g-2 mb-3 align-items-end">
+                    <div class="col-md-4">
                         <label class="form-label">Tipo de Pintura</label>
                         <select class="form-select" 
                                 wire:model.live="pinturasData.{{ $pinturaIndex }}.material_id">
@@ -150,10 +169,10 @@
                             value="$ {{ $this->getPrecioTotalPintura($pinturaIndex) }}">
                     </div>
 
-                    <div class="col-md-4 d-flex align-items-end">
-                        <button type="button" class="btn btn-sm btn-outline-danger w-100" 
+                    <div class="col-md-2 align-items-end">
+                        <button type="button" class="btn btn-outline-danger" 
                                 wire:click="removerPintura({{ $pinturaIndex }})">
-                            Quitar Pintura
+                            Eliminar
                         </button>
                     </div>
                 </div>
