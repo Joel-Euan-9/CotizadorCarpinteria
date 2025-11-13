@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('description');
             $table->decimal('price', 8, 2);
             $table->foreignId('categories_id')
-                  ->constrained('categories')
+                  ->constrained()
                   ->onDelete('cascade');
             $table->timestamps();
         });
