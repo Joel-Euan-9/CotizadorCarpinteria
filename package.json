@@ -18,6 +18,8 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^7.1.0",
         "bootstrap": "^5.3.8",
-        "livewire": "^0.6.1"
+        "laravel-echo": "^2.2.6",
+        "livewire": "^0.6.1",
+        "pusher-js": "^8.4.0"
     }
 }

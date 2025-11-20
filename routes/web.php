@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\ChatRoom;
 use App\Livewire\UserAccount;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
@@ -57,6 +58,9 @@ Route::middleware('auth')->group(function(){
 
      // Ruta para el panel de Mis Notas
      Route::get('/notes', NotesManager::class)->name('notes.index');
+
+     // Ruta para el panel del Chat
+     Route::get('/chat', ChatRoom::class)->name('chat.index');
 
 
 });

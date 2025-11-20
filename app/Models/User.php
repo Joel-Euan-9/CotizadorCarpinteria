@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Models\Note;
+use App\Models\Message;
 
 class User extends Authenticatable
 {
@@ -48,8 +49,19 @@ class User extends Authenticatable
         ];
     }
 
+    //Obtiene todas las notas del usuario
+
     public function notes(): HasMany
     {
         return $this->hasMany(Note::class);
     }
+
+    //Obtiene todos los mensajes del usuario
+
+    public function messages(): HasMany
+    {
+        return $this->hasMany(Message::class);
+    }
+
+
 }
