@@ -19,7 +19,7 @@ class Material extends Model
         'name',
         'description',
         'price',
-        'category_id', // Asumo que usaste 'category_id' (singular)
+        'categories_id', // Asumo que usaste 'category_id' (singular)
     ];
 
     /**
@@ -28,6 +28,6 @@ class Material extends Model
     public function category(): BelongsTo
     {
         // Usamos 'category_id' como la llave foránea
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsTo(Category::class, 'categories_id');
     }
 }
