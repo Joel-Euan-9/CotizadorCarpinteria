@@ -2,12 +2,14 @@
 
 namespace App\Livewire;
 
-
+use Barryvdh\DomPDF\Facade\Pdf;
 use Livewire\Component;
 use App\Models\Material;
+use App\Models\Quotation;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\Layout;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -16,6 +18,16 @@ class Cotizador extends Component
 
     #[Layout('layouts.sidebar')] 
 
+
+    public $productName = ''; // Para el campo 'name'
+    public $customerName = ''; // Para el campo 'customer'
+    public $description = '';
+    public $long = '';
+    public $width = '';
+    public $height = '';
+    public $quantity = '';
+    public $creationDate;
+    public $expirationDate;
     public $maderasPrecioUnitario;
 
     public $herrajesPrecioUnitario;
@@ -82,6 +94,9 @@ class Cotizador extends Component
     $this->pinturasPrecioUnitario = Material::where('categories_id','3')
                                         ->pluck('price', 'id')
                                         ->toArray();
+
+    $this->creationDate = now()->toDateString();
+    $this->expirationDate = now()->addDays(30)->toDateString();
     }
 
     public function agregarOtraMadera()
@@ -281,8 +296,42 @@ public function getSubtotalHerrajes()
         
         // Almacenar el resultado final
         $this->costoTotal = number_format($totalConGanancia, 2, '.', '');
+
+        $quotation = Quotation::create([
+            'name' => $this->productName,
+            'customer' => $this->customerName,
+            'creation_date' => $this->creationDate,
+            'expiration_date' => $this->expirationDate,
+            'total' => $this->costoTotal,
+
+        ]);
+
+        $user = Auth::user();
         
+        $datosPdf = [
+        'quotation' => $quotation, // El objeto de la cotización guardada
+        'user' => $user,
+        'description' => $this->description,
+        'long' => $this->long,
+        'width' => $this->width,
+        'height'=> $this->height,
+        'quantity' => $this->quantity,
+        // ... (otros detalles como pinturas, mano de obra)
+    ];
+
+    $pdf = Pdf::loadView('pdf.cotizacion', $datosPdf)
+          ->setPaper('A4', 'portrait')
+          ->setOption('margin-top', 0)
+          ->setOption('margin-bottom', 0)
+          ->setOption('margin-left', 0)
+          ->setOption('margin-right', 0);;
+
+
         session()->flash('success', 'El costo total ha sido calculado incluyendo la ganancia.');
+
+        return response()->streamDownload(function () use ($pdf) {
+        echo $pdf->output();
+    }, 'cotizacion-' . $quotation->id . '.pdf');
     }
 
 

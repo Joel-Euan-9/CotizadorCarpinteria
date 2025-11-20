@@ -3,17 +3,39 @@
         <h1>Cotizador</h1>
     </div>
     <form wire:submit.prevent="calcularCosto">
-        <div class="row mb-4">
         <h2>Datos generales</h2>
+        <div class="row row-cols-2 mb-4 g-3">
             <div class="col">
                 <label for="name" class="form-label fs-4">Nombre del cliente</label>
-                <input type="text" class="form-control" placeholder="Nombre completo">
+                <input type="text" class="form-control" wire:model.live="customerName" placeholder="Nombre del cliente">
             </div>
             <div class="col">
-                <label for="name" class="form-label fs-4">Producto</label>
-                <input type="text" class="form-control" placeholder="Nombre del producto">
+                <label for="product" class="form-label fs-4">Producto</label>
+                <input type="text" class="form-control" wire:model.live="productName" placeholder="Nombre del producto">
             </div>
-       
+            <div class="col">
+                <label for="description" class="form-label fs-4">Descripción</label>
+                <input type="text" class="form-control" wire:model.live="description" placeholder="Descripción del producto">
+            </div>
+            <div class="col">
+                <label for="description" class="form-label fs-4">Cantidad</label>
+                <input type="text" class="form-control" wire:model.live="quantity" placeholder="Cantidad">
+            </div>
+        </div>
+        <h4>Ingresa las dimenciones del producto</h4>
+        <div class="row row-cols-3 mb-3">
+            <div class="col">
+                <label for="description" class="form-label fs-4">Largo</label>
+                <input type="text" class="form-control" wire:model.live="long" placeholder="Cantidad">
+            </div>
+            <div class="col">
+                <label for="description" class="form-label fs-4">Ancho</label>
+                <input type="text" class="form-control" wire:model.live="width" placeholder="Cantidad">
+            </div>
+            <div class="col">
+                <label for="description" class="form-label fs-4">Alto</label>
+                <input type="text" class="form-control" wire:model.live="height" placeholder="Cantidad">
+            </div>
         </div>
         <h2>Cotizador de Maderas</h2>
         <h4>Agregue cada tipo de madera y sus respectivas piezas.</h6>
@@ -135,7 +157,7 @@
                 </div>
             @endforeach
 
-            <button type="button" class="btn btn-sm btn-primary" wire:click="agregarHerraje">
+            <button type="button" class="fs-6 btn btn-outline-success" wire:click="agregarHerraje">
                 + Agregar Otro Herraje
             </button>
         </div>
@@ -178,7 +200,7 @@
                 </div>
             @endforeach
 
-            <button type="button" class="btn btn-sm btn-primary" wire:click="agregarPintura">
+            <button type="button" class="fs-6 btn btn-outline-success" wire:click="agregarPintura">
                 + Agregar Otra Pintura
             </button>
         </div>
